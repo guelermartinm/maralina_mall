@@ -14,16 +14,17 @@
   <header class="sticky-top">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="#inicio">
-          <img src="images/maralina_logo.png" alt="Maralina Mall" height="64" class="logo-mall">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html#inicio">
+          <img src="images/maralina_logo.png" alt="Maralina Mall" height="80" class="logo-mall">
         </a>
         <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">☰</button>
         <div id="nav" class="collapse navbar-collapse justify-content-end">
           <ul class="navbar-nav small">
-            <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="#nuestros-locales">Locales</a></li>
-            <li class="nav-item"><a class="nav-link" href="#info">Información</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#inicio">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#nuestros-locales">Locales</a></li>
+            <!-- antes iban a #info y #contacto, ahora a las páginas nuevas -->
+            <li class="nav-item"><a class="nav-link" href="informacion.html">Información</a></li>
+            <li class="nav-item"><a class="nav-link" href="promociones.html">Promociones</a></li>
           </ul>
         </div>
       </div>
@@ -44,54 +45,102 @@
     </section>
 
     <!-- MAPA -->
-    <section class="py-4">
-      <div class="container">
-        <div id="mapa-inicio-wrapper" class="mb-3" aria-label="Mapa general de la galería">
-          <svg id="mapaInicio" viewBox="0 0 500 300" role="img" aria-labelledby="mapaInicioTitle mapaInicioDesc">
-            <title id="mapaInicioTitle">Mapa de locales de Maralina Mall</title>
-            <desc id="mapaInicioDesc">
-              Marcadores de Punto N, Bullbenny, Pixel Play, Prime Boots, Giza, Hoyts y Neverland. Usá Tab y Enter para activarlos.
-            </desc>
+<section class="py-4">
+  <div class="container">
+    <div class="mapa-plano">
+      <!-- MAPA GRANDE -->
+      <div class="mapa-plano-svg">
+        <svg id="mapaInicio" viewBox="0 0 1100 520" aria-label="Mapa de Maralina Mall">
+          <!-- fondo -->
+          <rect x="10" y="10" width="1080" height="500" rx="26" fill="#f9f1e5" stroke="#ccbda7" stroke-width="4" />
 
-            <rect x="10" y="10" width="480" height="280" rx="12" fill="#f3f4f6" stroke="#d1d5db" />
+          <!-- pasillo blanco central (curva) -->
+          <path d="M160 120 H960 V210 Q880 225 880 262 T960 315 V400 H160 V310 Q240 295 240 258 T160 210 Z"
+                fill="#ffffff" stroke="#dfd7cc" stroke-width="3" />
 
-            <!-- fila 1 -->
-            <g tabindex="0" role="button" aria-label="PUNTO N" class="marker-group" data-id="punto-n" transform="translate(70,70)">
-              <circle class="marker-btn" r="10"></circle>
-              <text x="16" y="5" font-size="12" fill="#111827">PUNTO N</text>
-            </g>
-            <g tabindex="0" role="button" aria-label="BULLBENNY" class="marker-group" data-id="bullbenny" transform="translate(200,60)">
-              <circle class="marker-btn" r="10"></circle>
-              <text x="16" y="5" font-size="12" fill="#111827">BULLBENNY</text>
-            </g>
-            <g tabindex="0" role="button" aria-label="PIXEL PLAY" class="marker-group" data-id="pixel-play" transform="translate(340,60)">
-              <circle class="marker-btn" r="10"></circle>
-              <text x="16" y="5" font-size="12" fill="#111827">PIXEL PLAY</text>
-            </g>
+          <!-- 1) VIDEOJUEGOS Y ENTRETENIMIENTO (pixel play, neverland, hoyts) -->
+          <!-- lo dejamos arriba-izquierda y abajo-izquierda compartiendo color -->
+          <path d="M40 70 H420 V210 L340 220 Q280 230 250 246 T210 270 Q210 295 160 305 H40 Z"
+                fill="#f28b3b" stroke="#203043" stroke-width="3" />
+          <!-- parte de abajo del mismo sector -->
+          <path d="M40 305 H160 Q210 295 210 270 Q210 245 250 228 T340 210 L420 200 V430 H40 Z"
+                fill="#f28b3b" stroke="#203043" stroke-width="3" />
 
-            <!-- fila 2 -->
-            <g tabindex="0" role="button" aria-label="PRIME BOOTS" class="marker-group" data-id="prime-boots" transform="translate(100,150)">
-              <circle class="marker-btn" r="10"></circle>
-              <text x="16" y="5" font-size="12" fill="#111827">PRIME BOOTS</text>
-            </g>
-            <g tabindex="0" role="button" aria-label="GIZA" class="marker-group" data-id="giza" transform="translate(260,150)">
-              <circle class="marker-btn" r="10"></circle>
-              <text x="16" y="5" font-size="12" fill="#111827">GIZA</text>
-            </g>
+          <!-- textos entretenimiento -->
+          <text x="70" y="215" fill="#0f2435" font-size="20" font-weight="600">PIXEL PLAY</text>
+          <text x="70" y="245" fill="#0f2435" font-size="20" font-weight="600">NEVERLAND</text>
+          <text x="70" y="275" fill="#0f2435" font-size="20" font-weight="600">HOYTS</text>
 
-            <!-- entretenimientos -->
-            <g tabindex="0" role="button" aria-label="HOYTS" class="marker-group" data-id="hoyts" transform="translate(80,230)">
-              <circle class="marker-btn" r="10"></circle>
-              <text x="16" y="5" font-size="12" fill="#111827">HOYTS</text>
-            </g>
-            <g tabindex="0" role="button" aria-label="NEVERLAND" class="marker-group" data-id="neverland" transform="translate(330,230)">
-              <circle class="marker-btn" r="10"></circle>
-              <text x="16" y="5" font-size="12" fill="#111827">NEVERLAND</text>
-            </g>
-          </svg>
-        </div>
+          <!-- 2) GASTRONOMÍA (la trattoria, green & fresh, sushi go) -->
+          <!-- la ponemos en el centro-izquierda, pegada al pasillo -->
+          <path d="M420 200 L520 190 Q560 190 590 200 T630 225 Q640 240 660 245 L660 420 H420 Z"
+                fill="#d95c47" stroke="#203043" stroke-width="3" />
+          <text x="440" y="275" fill="#ffffff" font-size="18" font-weight="600">LA TRATTORIA</text>
+          <text x="440" y="303" fill="#ffffff" font-size="18" font-weight="600">SUSHI GO!</text>
+          <text x="440" y="331" fill="#ffffff" font-size="18" font-weight="600">GREEN &amp; FRESH</text>
+
+          <!-- 3) DISEÑO Y MODA (prime boots, punto n, bullbenny) -->
+          <!-- ocupa todo el bloque derecho arriba -->
+          <path d="M660 70 H1050 V210 H880 Q840 210 820 232 L785 270 Q770 285 740 290 L660 300 Z"
+                fill="#4da7a7" stroke="#203043" stroke-width="3" />
+          <text x="690" y="165" fill="#0f2435" font-size="22" font-weight="600">PUNTO N</text>
+          <text x="690" y="194" fill="#0f2435" font-size="22" font-weight="600">BULLBENNY</text>
+          <text x="880" y="194" fill="#0f2435" font-size="22" font-weight="600">PRIME BOOTS</text>
+
+          <!-- 4) ACCESORIOS (giza) -->
+          <!-- abajo a la derecha -->
+          <path d="M660 300 L740 290 Q770 285 785 270 L820 232 Q840 210 880 210 H1050 V430 H660 Z"
+                fill="#f4c94e" stroke="#203043" stroke-width="3" />
+          <text x="690" y="387" fill="#0f2435" font-size="20" font-weight="600">GIZA</text>
+
+          <!-- LEYENDA ABAJO -->
+          <g transform="translate(230, 470)">
+            <circle cx="0" cy="0" r="8" fill="#f28b3b" />
+            <text x="14" y="4" font-size="13" fill="#0f2435" font-weight="600">VIDEOJUEGOS Y ENTRETENIMIENTO</text>
+
+            <circle cx="280" cy="0" r="8" fill="#d95c47" />
+            <text x="294" y="4" font-size="13" fill="#0f2435" font-weight="600">GASTRONOMÍA</text>
+
+            <circle cx="430" cy="0" r="8" fill="#4da7a7" />
+            <text x="445" y="4" font-size="13" fill="#0f2435" font-weight="600">DISEÑO Y MODA</text>
+
+            <circle cx="600" cy="0" r="8" fill="#f4c94e" />
+            <text x="615" y="4" font-size="13" fill="#0f2435" font-weight="600">ACCESORIOS</text>
+          </g>
+        </svg>
       </div>
-    </section>
+
+      <!-- LISTA (agregado) -->
+      <aside class="mapa-plano-panel">
+        <h3 class="h6 mb-2">Locales del plano</h3>
+        <ul class="list-unstyled mapa-plano-list">
+          <!-- videojuegos y entretenimiento -->
+          <li class="mapa-plano-cat">Videojuegos y entretenimiento</li>
+          <li><button class="mapa-local-link" data-id="pixel-play">Pixel Play</button></li>
+          <li><button class="mapa-local-link" data-id="neverland">Neverland</button></li>
+          <li><button class="mapa-local-link" data-id="hoyts">Hoyts</button></li>
+
+          <!-- gastronomía -->
+          <li class="mapa-plano-cat mt-3">Gastronomía</li>
+          <li><button class="mapa-local-link" data-id="la-trattoria">La Trattoria</button></li>
+          <li><button class="mapa-local-link" data-id="sushi-go">Sushi Go!</button></li>
+          <li><button class="mapa-local-link" data-id="green-fresh">Green &amp; Fresh</button></li>
+
+          <!-- accesorios -->
+          <li class="mapa-plano-cat mt-3">Accesorios</li>
+          <li><button class="mapa-local-link" data-id="giza">Giza</button></li>
+
+          <!-- diseño y moda -->
+          <li class="mapa-plano-cat mt-3">Diseño y moda</li>
+          <li><button class="mapa-local-link" data-id="prime-boots">Prime Boots</button></li>
+          <li><button class="mapa-local-link" data-id="punto-n">Punto N</button></li>
+          <li><button class="mapa-local-link" data-id="bullbenny">Bullbenny</button></li>
+        </ul>
+        <p class="small text-muted mt-3">Tocá el nombre y te lleva al local en “Nuestros locales”.</p>
+      </aside>
+    </div>
+  </div>
+</section>
 
     <!-- NUESTROS LOCALES -->
     <section id="nuestros-locales" class="py-5 bg-light">
@@ -199,7 +248,7 @@
               </div>
             </div>
           </div>
-          
+
           <!-- LA TRATTORIA -->
           <div class="col-sm-6 col-lg-4" data-store-name="la-trattoria" data-category="gastronomia">
             <div class="card h-100 store-card">
@@ -248,53 +297,6 @@
       </div>
     </section>
 
-    <!-- INFO -->
-    <section id="info" class="py-5 bg-white">
-      <div class="container">
-        <h2 class="h4 mb-3">Información del shopping</h2>
-        <div class="row g-3">
-          <div class="col-md-4">
-            <h3 class="h6">Horarios</h3>
-            <p class="small mb-1">Lunes a viernes: 10:00 a 22:00</p>
-            <p class="small mb-1">Sábados: 10:00 a 23:00</p>
-            <p class="small mb-1">Domingos y feriados: 12:00 a 21:00</p>
-          </div>
-          <div class="col-md-4">
-            <h3 class="h6">Contacto</h3>
-            <p class="small mb-1">Tel: (011) 4567-8900</p>
-            <p class="small mb-1">Mail: info@maralinamall.com</p>
-          </div>
-          <div class="col-md-4">
-            <h3 class="h6">Ubicación</h3>
-            <p class="small mb-2">Av. Shopping 1234, CABA</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACTO -->
-    <section id="contacto" class="py-5">
-      <div class="container">
-        <h2 class="h4 mb-3">Contacto</h2>
-        <form class="row g-2" aria-label="Formulario de contacto">
-          <div class="col-sm-6">
-            <label class="form-label" for="nombre">Nombre</label>
-            <input class="form-control form-control-sm" id="nombre" type="text" required />
-          </div>
-          <div class="col-sm-6">
-            <label class="form-label" for="email">Email</label>
-            <input class="form-control form-control-sm" id="email" type="email" required />
-          </div>
-          <div class="col-12">
-            <label class="form-label" for="mensaje">Mensaje</label>
-            <textarea class="form-control form-control-sm" id="mensaje" rows="3" required></textarea>
-          </div>
-          <div class="col-12">
-            <button class="btn btn-primary btn-sm" type="submit">Enviar</button>
-          </div>
-        </form>
-      </div>
-    </section>
   </main>
 
   <!-- CHAT FLOTANTE -->
