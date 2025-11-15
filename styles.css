@@ -7,39 +7,102 @@
   --muted: #6b7280;
 }
 
-html, body {
-  font-family: 'Poppins', sans-serif;
+html,
+body {
+  font-family: "Poppins", sans-serif;
   background: var(--bg);
   color: var(--txt);
   scroll-behavior: smooth;
 }
 
-/* HEADER */
+/* (sobró de versiones anteriores, no rompe nada) */
+.planoMall {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+}
+@media (max-width: 991px) {
+  .planoMall {
+    flex-direction: column;
+  }
+}
+
+/* --------- TIPOGRAFÍAS DEL MAPA --------- */
+#mapaPlano {
+  display: block;
+}
+
+/* textos del mapa */
+.cat-title {
+  font: 700 12px/1 "Poppins", system-ui, sans-serif;
+  fill: #0f2435;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.store {
+  font: 800 20px/1.15 "Poppins", system-ui, sans-serif;
+  fill: #0f2435;
+}
+.store.light {
+  fill: #fff;
+}
+.pasillo-central {
+  font: 800 22px/1 "Poppins", system-ui, sans-serif;
+  fill: #8fa1b2;
+  letter-spacing: 0.22em;
+}
+
+/* chips del pasillo */
+.chip {
+  fill: #eef3f7;
+  stroke: #cfd8df;
+}
+.chip-text {
+  font: 700 12px/1 "Poppins", system-ui, sans-serif;
+  fill: #5e6b78;
+  letter-spacing: 0.12em;
+}
+
+/* leyenda */
+.legend {
+  font: 600 12px/1 "Poppins", system-ui, sans-serif;
+  fill: #0f2435;
+}
+
+/* ---------------------------------------------------------- */
+/* HEADER                                                     */
+/* ---------------------------------------------------------- */
 header {
-  background: var(--brand);
-  color: var(--light);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background-color: #041b33;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.navbar {
+  background-color: #041b33 !important;
 }
 .navbar-brand {
-  color: var(--light) !important;
+  color: #ffffff !important;
   font-weight: 600;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
 }
 .nav-link {
-  color: var(--light) !important;
-  opacity: 0.85;
-  transition: 0.3s;
+  color: #ffffff !important;
+  opacity: 0.9;
+  transition: opacity 0.3s, color 0.3s;
 }
 .nav-link:hover {
   opacity: 1;
-  color: var(--accent) !important;
+  color: #c7a862 !important;
 }
 .logo-mall {
   height: 100px;
   width: auto;
 }
 
-/* HERO */
+/* ---------------------------------------------------------- */
+/* HERO                                                       */
+/* ---------------------------------------------------------- */
 .hero-mall {
   position: relative;
   min-height: 70vh;
@@ -56,58 +119,98 @@ header {
 }
 .hero-mall h1,
 .hero-mall p {
-  text-shadow: 0 2px 6px rgba(0,0,0,.35);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
 }
 
-/* MAPA + LISTA (nuevo layout tipo DOT) */
-.mapa-mall {
-  align-items: flex-start;
+/* ---------------------------------------------------------- */
+/* SECCIÓN PLANO MARALINA (MAPA + LISTA TIPO DOT)             */
+/* ---------------------------------------------------------- */
+.plano-section {
+  background: #041b33; /* mismo tono que la navbar / botones */
+  padding: 3.5rem 0;
+  border-top: 1px solid #010b16;
+  border-bottom: 1px solid #010b16;
 }
-.mapa-mall-svg {
-  flex: 0 0 auto;
-  background: #fff;
-  border: 1px solid #e2dfd8;
-  border-radius: 18px;
-  padding: 1rem;
-  max-width: 620px;
+
+.plano-section .container {
+  max-width: 1280px; /* más ancho: parecido al DOT */
 }
+
+.mapa-plano {
+  display: flex;
+  gap: 2.5rem;
+  align-items: stretch;
+}
+
+/* MAPA grande a la izquierda */
+.mapa-plano-svg {
+  flex: 0 0 70%;
+  background: #f6efe4; /* beige del plano */
+  border-radius: 24px;
+  border: 1px solid #e1dad0;
+  padding: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
 #mapaInicio {
   width: 100%;
   height: auto;
   display: block;
-  pointer-events: none; /* mapa estático */
+  object-fit: contain;
 }
-.mapa-mall-list {
-  min-width: 220px;
+
+/* Panel derecho con lista de locales */
+.mapa-plano-panel {
+  flex: 0 0 26%;
+  background-color: #041b33;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1.25rem 1.2rem 1rem;
+  color: #ffffff;
 }
-.mapa-mall-list .mapa-list {
-  max-height: 360px;
-  overflow-y: auto;
-  padding-right: .25rem;
+
+.mapa-plano-list {
+  margin: 0;
+  padding: 0;
 }
-.mapa-list li {
-  margin-bottom: .4rem;
+
+.mapa-plano-cat {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+  margin-bottom: 0.2rem;
 }
+
+/* Botones de la lista: mismo color que el panel, casi “invisibles” */
 .mapa-local-link {
   display: block;
   width: 100%;
   text-align: left;
-  background: #0f2435;
-  color: #fff;
+  background-color: #041b33; /* se mezcla con el panel */
+  color: #ffffff;
   border: none;
-  border-radius: 10px;
-  padding: .45rem .6rem;
-  font-size: .85rem;
+  border-radius: 0;
+  padding: 0.42rem 0;
+  font-size: 0.86rem;
+  margin: 0.12rem 0;
   cursor: pointer;
-  transition: background .15s ease-out, transform .15s ease-out;
-}
-.mapa-local-link:hover,
-.mapa-local-link:focus {
-  background: #183755;
-  transform: translateX(2px);
+  transition: color 0.15s ease-out, transform 0.15s ease-out;
 }
 
-/* NUESTROS LOCALES */
+.mapa-local-link:hover,
+.mapa-local-link:focus {
+  color: #c7a862; /* dorado de la marca */
+  transform: translateX(2px); /* leve indicación de click */
+}
+
+/* ---------------------------------------------------------- */
+/* NUESTROS LOCALES                                           */
+/* ---------------------------------------------------------- */
 #nuestros-locales {
   background: var(--light);
 }
@@ -118,12 +221,12 @@ header {
 #storesGrid .card {
   border: none;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.08);
-  transition: transform .2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
 }
 #storesGrid .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 16px rgba(0,0,0,.12);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 .store-card .btn {
   background: var(--brand);
@@ -138,8 +241,8 @@ header {
   height: 140px;
   object-fit: contain;
   background: #fff;
-  border-bottom: 1px solid rgba(0,0,0,.03);
-  padding: .75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  padding: 0.75rem;
 }
 .store-card.highlight {
   outline: 2px solid var(--accent);
@@ -149,19 +252,28 @@ header {
 .highlight-store {
   outline: 3px solid #f28b3b;
   outline-offset: 3px;
-  transition: outline .3s ease;
+  transition: outline 0.3s ease;
 }
 
-/* CHAT FLOTANTE */
+/* highlight rápido cuando viene del botón del plano */
+.flash-highlight {
+  outline: 3px solid #0f2435;
+  box-shadow: 0 0 0 6px rgba(15, 36, 53, 0.1);
+  transition: box-shadow 0.3s ease, outline-color 0.3s ease;
+}
+
+/* ---------------------------------------------------------- */
+/* CHAT FLOTANTE                                              */
+/* ---------------------------------------------------------- */
 .chat {
   position: fixed;
   bottom: 1rem;
   right: 1rem;
   width: 280px;
   background: #ffffff;
-  border: 1px solid rgba(0,0,0,.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   z-index: 999;
@@ -169,21 +281,21 @@ header {
 .chat__header {
   background: var(--brand);
   color: #fff;
-  padding: .5rem .75rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 12px 12px 0 0;
-  font-size: .85rem;
+  font-size: 0.85rem;
 }
 .chat__msgs {
   max-height: 180px;
   overflow-y: auto;
-  padding: .5rem;
-  gap: .25rem;
+  padding: 0.5rem;
+  gap: 0.25rem;
   display: flex;
   flex-direction: column;
 }
 .chat__msg {
-  font-size: .75rem;
-  padding: .35rem .5rem;
+  font-size: 0.75rem;
+  padding: 0.35rem 0.5rem;
   border-radius: 10px;
   max-width: 90%;
 }
@@ -197,15 +309,17 @@ header {
   align-self: flex-end;
 }
 .chat__form {
-  padding: .5rem;
-  border-top: 1px solid rgba(0,0,0,.05);
+  padding: 0.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 .chat--minimized .chat__msgs,
 .chat--minimized .chat__form {
   display: none;
 }
 
-/* FOOTER */
+/* ---------------------------------------------------------- */
+/* FOOTER                                                     */
+/* ---------------------------------------------------------- */
 .footer-mall {
   background: var(--brand);
   color: var(--light);
@@ -218,8 +332,16 @@ header {
 .footer-mall a:hover {
   color: #fff;
 }
-
-/* RESPONSIVE */
+.info-icon img {
+  width: 140px;        /* tamaño uniforme */
+  height: 140px;       /* mantiene proporción con object-fit */
+  object-fit: contain; /* evita deformación */
+  display: block;
+  margin: 0 auto;
+}
+/* ---------------------------------------------------------- */
+/* RESPONSIVE                                                 */
+/* ---------------------------------------------------------- */
 @media (max-width: 576px) {
   .chat {
     width: 95%;
@@ -228,72 +350,16 @@ header {
   .hero-mall {
     min-height: 240px;
   }
-  .mapa-mall {
+}
+
+/* plano + lista apilados en mobile/tablet */
+@media (max-width: 991px) {
+  .mapa-plano {
     flex-direction: column;
   }
-  .mapa-mall-svg {
-    max-width: 100%;
+  .mapa-plano-panel {
+    flex: 1 1 auto;
+    width: 100%;
+    margin-top: 1.5rem;
   }
-  .mapa-mall-list .mapa-list {
-    max-height: none;
-  }
 }
-/* MAPA GRANDE TIPO DOT */
-.mapa-plano {
-  display: flex;
-  gap: 2rem;
-  align-items: stretch;
-}
-
-.mapa-plano-svg {
-  flex: 1 1 auto;
-  background: #fff;
-  border: 1px solid #e2dfd8;
-  border-radius: 18px;
-  padding: 1rem;
-}
-
-#mapaInicio {
-  width: 100%;
-  height: auto;
-  display: block;
-  pointer-events: none; /* mapa estático */
-}
-
-.mapa-plano-panel {
-  width: 240px;
-}
-
-.mapa-plano-list {
-  margin: 0;
-  padding: 0;
-}
-
-.mapa-plano-cat {
-  font-size: .7rem;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  color: #0f2435;
-  font-weight: 700;
-}
-
-.mapa-local-link {
-  display: block;
-  width: 100%;
-  text-align: left;
-  background: #0f2435;
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  padding: .35rem .6rem;
-  font-size: .83rem;
-  margin-bottom: .35rem;
-  cursor: pointer;
-  transition:  .15s ease-out, transform .15s ease-out;
-}
-.mapa-local-link:hover,
-.mapa-local-link:focus {
-  background: #183755;
-  transform: translateX(2px);
-}
-

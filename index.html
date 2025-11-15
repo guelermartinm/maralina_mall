@@ -45,102 +45,41 @@
     </section>
 
     <!-- MAPA -->
-<section class="py-4">
-  <div class="container">
-    <div class="mapa-plano">
-      <!-- MAPA GRANDE -->
-      <div class="mapa-plano-svg">
-        <svg id="mapaInicio" viewBox="0 0 1100 520" aria-label="Mapa de Maralina Mall">
-          <!-- fondo -->
-          <rect x="10" y="10" width="1080" height="500" rx="26" fill="#f9f1e5" stroke="#ccbda7" stroke-width="4" />
+<section id="inicio" class="plano-section">
+  <div class="container mapa-plano">
 
-          <!-- pasillo blanco central (curva) -->
-          <path d="M160 120 H960 V210 Q880 225 880 262 T960 315 V400 H160 V310 Q240 295 240 258 T160 210 Z"
-                fill="#ffffff" stroke="#dfd7cc" stroke-width="3" />
+    <!-- MAPA A LA IZQUIERDA -->
+    <div class="mapa-plano-svg">
+      <img id="mapaInicio" src="images/mapa.jpg" alt="Mapa Maralina Mall">
+    </div>
 
-          <!-- 1) VIDEOJUEGOS Y ENTRETENIMIENTO (pixel play, neverland, hoyts) -->
-          <!-- lo dejamos arriba-izquierda y abajo-izquierda compartiendo color -->
-          <path d="M40 70 H420 V210 L340 220 Q280 230 250 246 T210 270 Q210 295 160 305 H40 Z"
-                fill="#f28b3b" stroke="#203043" stroke-width="3" />
-          <!-- parte de abajo del mismo sector -->
-          <path d="M40 305 H160 Q210 295 210 270 Q210 245 250 228 T340 210 L420 200 V430 H40 Z"
-                fill="#f28b3b" stroke="#203043" stroke-width="3" />
+    <!-- LISTA A LA DERECHA -->
+    <div class="mapa-plano-panel"> 
 
-          <!-- textos entretenimiento -->
-          <text x="70" y="215" fill="#0f2435" font-size="20" font-weight="600">PIXEL PLAY</text>
-          <text x="70" y="245" fill="#0f2435" font-size="20" font-weight="600">NEVERLAND</text>
-          <text x="70" y="275" fill="#0f2435" font-size="20" font-weight="600">HOYTS</text>
+      <h4 class="mapa-plano-cat">Videojuegos y entretenimiento</h4>
+      <button class="mapa-local-link" data-store="pixel-play">Pixel Play</button>
+      <button class="mapa-local-link" data-store="neverland">Neverland</button>
+      <button class="mapa-local-link" data-store="hoyts">Hoyts</button>
 
-          <!-- 2) GASTRONOMÍA (la trattoria, green & fresh, sushi go) -->
-          <!-- la ponemos en el centro-izquierda, pegada al pasillo -->
-          <path d="M420 200 L520 190 Q560 190 590 200 T630 225 Q640 240 660 245 L660 420 H420 Z"
-                fill="#d95c47" stroke="#203043" stroke-width="3" />
-          <text x="440" y="275" fill="#ffffff" font-size="18" font-weight="600">LA TRATTORIA</text>
-          <text x="440" y="303" fill="#ffffff" font-size="18" font-weight="600">SUSHI GO!</text>
-          <text x="440" y="331" fill="#ffffff" font-size="18" font-weight="600">GREEN &amp; FRESH</text>
+      <h4 class="mapa-plano-cat mt-3">Gastronomía</h4>
+      <button class="mapa-local-link" data-store="la-trattoria">La Trattoria</button>
+      <button class="mapa-local-link" data-store="sushi-go">Sushi Go!</button>
+      <button class="mapa-local-link" data-store="green-fresh">Green & Fresh</button>
 
-          <!-- 3) DISEÑO Y MODA (prime boots, punto n, bullbenny) -->
-          <!-- ocupa todo el bloque derecho arriba -->
-          <path d="M660 70 H1050 V210 H880 Q840 210 820 232 L785 270 Q770 285 740 290 L660 300 Z"
-                fill="#4da7a7" stroke="#203043" stroke-width="3" />
-          <text x="690" y="165" fill="#0f2435" font-size="22" font-weight="600">PUNTO N</text>
-          <text x="690" y="194" fill="#0f2435" font-size="22" font-weight="600">BULLBENNY</text>
-          <text x="880" y="194" fill="#0f2435" font-size="22" font-weight="600">PRIME BOOTS</text>
+      <h4 class="mapa-plano-cat mt-3">Accesorios</h4>
+      <button class="mapa-local-link" data-store="giza">Giza</button>
 
-          <!-- 4) ACCESORIOS (giza) -->
-          <!-- abajo a la derecha -->
-          <path d="M660 300 L740 290 Q770 285 785 270 L820 232 Q840 210 880 210 H1050 V430 H660 Z"
-                fill="#f4c94e" stroke="#203043" stroke-width="3" />
-          <text x="690" y="387" fill="#0f2435" font-size="20" font-weight="600">GIZA</text>
+      <h4 class="mapa-plano-cat mt-3">Diseño y Moda</h4>
+      <button class="mapa-local-link" data-store="punto-n">Punto N</button>
+      <button class="mapa-local-link" data-store="bullbenny">Bullbenny</button>
+      <button class="mapa-local-link" data-store="prime-boots">Prime Boots</button>
 
-          <!-- LEYENDA ABAJO -->
-          <g transform="translate(230, 470)">
-            <circle cx="0" cy="0" r="8" fill="#f28b3b" />
-            <text x="14" y="4" font-size="13" fill="#0f2435" font-weight="600">VIDEOJUEGOS Y ENTRETENIMIENTO</text>
-
-            <circle cx="280" cy="0" r="8" fill="#d95c47" />
-            <text x="294" y="4" font-size="13" fill="#0f2435" font-weight="600">GASTRONOMÍA</text>
-
-            <circle cx="430" cy="0" r="8" fill="#4da7a7" />
-            <text x="445" y="4" font-size="13" fill="#0f2435" font-weight="600">DISEÑO Y MODA</text>
-
-            <circle cx="600" cy="0" r="8" fill="#f4c94e" />
-            <text x="615" y="4" font-size="13" fill="#0f2435" font-weight="600">ACCESORIOS</text>
-          </g>
-        </svg>
-      </div>
-
-      <!-- LISTA (agregado) -->
-      <aside class="mapa-plano-panel">
-        <h3 class="h6 mb-2">Locales del plano</h3>
-        <ul class="list-unstyled mapa-plano-list">
-          <!-- videojuegos y entretenimiento -->
-          <li class="mapa-plano-cat">Videojuegos y entretenimiento</li>
-          <li><button class="mapa-local-link" data-id="pixel-play">Pixel Play</button></li>
-          <li><button class="mapa-local-link" data-id="neverland">Neverland</button></li>
-          <li><button class="mapa-local-link" data-id="hoyts">Hoyts</button></li>
-
-          <!-- gastronomía -->
-          <li class="mapa-plano-cat mt-3">Gastronomía</li>
-          <li><button class="mapa-local-link" data-id="la-trattoria">La Trattoria</button></li>
-          <li><button class="mapa-local-link" data-id="sushi-go">Sushi Go!</button></li>
-          <li><button class="mapa-local-link" data-id="green-fresh">Green &amp; Fresh</button></li>
-
-          <!-- accesorios -->
-          <li class="mapa-plano-cat mt-3">Accesorios</li>
-          <li><button class="mapa-local-link" data-id="giza">Giza</button></li>
-
-          <!-- diseño y moda -->
-          <li class="mapa-plano-cat mt-3">Diseño y moda</li>
-          <li><button class="mapa-local-link" data-id="prime-boots">Prime Boots</button></li>
-          <li><button class="mapa-local-link" data-id="punto-n">Punto N</button></li>
-          <li><button class="mapa-local-link" data-id="bullbenny">Bullbenny</button></li>
-        </ul>
-        <p class="small text-muted mt-3">Tocá el nombre y te lleva al local en “Nuestros locales”.</p>
-      </aside>
     </div>
   </div>
 </section>
+
+
+
 
     <!-- NUESTROS LOCALES -->
     <section id="nuestros-locales" class="py-5 bg-light">
